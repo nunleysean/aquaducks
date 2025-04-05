@@ -130,3 +130,10 @@ h1 {
   color: #2a7ae2;
   text-align: center;
 }
+
+.title-icon {
+  width: 40px;
+  height: auto;
+  vertical-align: middle;
+  margin: 0 10px;
+}
