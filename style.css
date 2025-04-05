@@ -101,7 +101,9 @@ h1 {
 #controls {
   flex: 1; /* Allow the buttons section to take up available space */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  margin-top : 20px;
   gap: 10px; /* Add spacing between buttons */
 }
 
