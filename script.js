@@ -11,7 +11,7 @@ let selectedCell = null;
 // Init grid: well = 0, houses = [20, 22, 24]
 const gridState = Array.from({ length: 25 }, (_, i) => {
   if (i === 0) return { type: 'well' };
-  if ([20, 22, 24].includes(i)) return { type: 'house' };
+  if ([24].includes(i)) return { type: 'house' };
   return null; // empty cells to place pipes
 });
 
