@@ -35,7 +35,7 @@ const gridState = Array.from({ length: 25 }, (_, i) => {
   return null;
 });
 
-// Place 2 random boulders
+// Place 5 random boulders
 (function placeBoulders() {
   let placed = 0;
   while (placed < 5) {
@@ -242,6 +242,38 @@ document.getElementById('rotate-queue-btn').addEventListener('click', () => {
   renderQueue();
 });
 
+// Reset game button
+document.getElementById('reset-btn').addEventListener('click', resetGame);
+
 // Initialize game
 renderGrid();
 renderQueue();
+
+// Reset game
+function resetGame() {
+  selectedCell = null;
+
+  // Reset grid
+  for (let i = 0; i < gridState.length; i++) {
+    gridState[i] = null;
+  }
+
+  gridState[0] = { type: 'well' };
+  gridState[24] = { type: 'house' };
+
+  // Place new boulders
+  let placed = 0;
+  while (placed < 5) {
+    const index = Math.floor(Math.random() * 25);
+    if (!gridState[index]) {
+      gridState[index] = { type: 'boulder' };
+      placed++;
+    }
+  }
+
+  // Reset queue
+  pipeQueue = Array.from({ length: MAX_QUEUE_SIZE }, randomPipe);
+
+  renderGrid();
+  renderQueue();
+}
