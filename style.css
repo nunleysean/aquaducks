@@ -61,6 +61,12 @@ h1 {
   outline: 2px solid #2a7ae2;
 }
 
+.cell.flowing {
+  background-color: #cceeff;
+  box-shadow: 0 0 8px #33ccff;
+}
+
+
 .well {
   background-color: #d0f0ff;
   color: #2a7ae2;
@@ -70,6 +76,16 @@ h1 {
   background-color: #ffe9cc;
   color: #cc6600;
 }
+
+.cell.boulder {
+  background-color: #999;
+  color: #222;
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 #sidebar {
   display: flex;
