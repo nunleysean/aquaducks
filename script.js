@@ -229,10 +229,11 @@ function randomPipe() {
 document.getElementById('flow-btn').addEventListener('click', () => {
   const connected = checkConnectionAndHighlight();
   if (connected) {
-    alert("💧 Water reached the house!");
+    document.getElementById('win-overlay').classList.remove('hidden');
   } else {
     alert("🚫 Water did not reach the house.");
   }
+  
 });
 
 // Rotate the first piece in the queue
@@ -244,6 +245,12 @@ document.getElementById('rotate-queue-btn').addEventListener('click', () => {
 
 // Reset game button
 document.getElementById('reset-btn').addEventListener('click', resetGame);
+
+// Close win overlay
+document.getElementById('close-win-btn').addEventListener('click', () => {
+  document.getElementById('win-overlay').classList.add('hidden');
+  resetGame(); // Optional: reset on win
+});
 
 // Initialize game
 renderGrid();

@@ -194,3 +194,46 @@ h1 {
 .reset-icon:first-of-type {
   transform: scaleX(-1); /* Flip horizontally */
 }
+
+// Win Overlay
+#win-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 100, 150, 0.85);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  flex-direction: column;
+}
+
+.overlay-content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2em;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #fff;
+}
+
+#win-overlay.hidden {
+  display: none;
+}
+
+#close-win-btn {
+  margin-top: 1em;
+  background: #fff;
+  color: #0077cc;
+  font-weight: bold;
+  padding: 0.6em 1.4em;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+#close-win-btn:hover {
+  background-color: #e0f4ff;
+}
