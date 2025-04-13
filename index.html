@@ -4,45 +4,43 @@
   <meta charset="UTF-8">
   <title>AquaDucks</title>
   <link rel="stylesheet" href="style.css">
-  
-
 </head>
 <body>
+  <div id="game-container">
+    <h1>
+      <img src="img/WaterCan.svg" alt="Water Can" class="title-icon">
+      AquaDucks
+      <img src="img/WaterCan.svg" alt="Water Can" class="title-icon">
+    </h1>
 
-  <h1>
-    <img src="img/WaterCan.svg" alt="Water Can" class="title-icon">
-    AquaDucks
-    <img src="img/WaterCan.svg" alt="Water Can" class="title-icon">
-  </h1>
+    <div id="timer-display">⏱️ Time: 0s</div>
+    
+    <div id="game-board">
+      <div id="grid"></div>
 
-  <div id="timer-display">⏱️ Time: 0s</div>
-  
-  <div id="game-board">
-    <div id="grid"></div>
-
-    <div id="sidebar">
-      <div id="pipe-queue">
-        <h3 id="queue-title">Pipe Queue</h3>
-        <div id="queue-list"></div>
+      <div id="sidebar">
+        <div id="pipe-queue">
+          <h3 id="queue-title">Pipe Queue</h3>
+          <div id="queue-list"></div>
+        </div>
       </div>
-      
     </div>
-  </div>
-  <div id="controls">
-    <button id="place-btn">Place Pipe</button>
-    <button id="rotate-queue-btn">Rotate Queue Piece</button>
-    <button id="flow-btn">Flow Water</button>
-  </div>
-  <div id="restart">
-    <img src="img/ducky2.png" alt="Duck Icon" class="reset-icon">
-    <button id="reset-btn">Reset Game</button>
-    <img src="img/ducky2.png" alt="Duck Icon" class="reset-icon">
-  </div>
-  <div id="win-overlay" class="hidden">
-    <div class="overlay-content">
-      <h1>Congratulations!</h1>
-      <p>Water successfully reached the house!</p>
-      <button id="close-win-btn">Play Again</button>
+    <div id="controls">
+      <button id="place-btn">Place Pipe</button>
+      <button id="rotate-queue-btn">Rotate Queue Piece</button>
+      <button id="flow-btn">Flow Water</button>
+    </div>
+    <div id="restart">
+      <img src="img/ducky2.png" alt="Duck Icon" class="reset-icon">
+      <button id="reset-btn">Reset Game</button>
+      <img src="img/ducky2.png" alt="Duck Icon" class="reset-icon">
+    </div>
+    <div id="win-overlay" class="hidden">
+      <div class="overlay-content">
+        <h1>Congratulations!</h1>
+        <p>Water successfully reached the house!</p>
+        <button id="close-win-btn">Play Again</button>
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
