@@ -200,6 +200,26 @@ function checkConnectionAndHighlight() {
   return false;
 }
 
+// Timer functionality
+let timerInterval = null;
+let elapsedTime = 0;
+
+function startTimer() {
+  const timerDisplay = document.getElementById('timer-display');
+  elapsedTime = 0;
+  timerDisplay.textContent = `⏱️ Time: ${elapsedTime}s`;
+
+  timerInterval = setInterval(() => {
+    elapsedTime++;
+    timerDisplay.textContent = `⏱️ Time: ${elapsedTime}s`;
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+}
+
 // Place pipe from queue
 document.getElementById('place-btn').addEventListener('click', () => {
   if (!selectedCell) return alert("Select a grid cell!");
@@ -229,11 +249,24 @@ function randomPipe() {
 document.getElementById('flow-btn').addEventListener('click', () => {
   const connected = checkConnectionAndHighlight();
   if (connected) {
-    document.getElementById('win-overlay').classList.remove('hidden');
+    stopTimer();
+    const winOverlay = document.getElementById('win-overlay');
+    const gameBoard = document.getElementById('game-board');
+    const pipeQueue = document.getElementById('pipe-queue');
+    const controls = document.getElementById('controls');
+    const timerDisplay = document.getElementById('timer-display');
+    const restart = document.getElementById('restart');
+
+    winOverlay.querySelector('p').textContent = `Water successfully reached the house in ${elapsedTime} seconds!`;
+    winOverlay.classList.remove('hidden');
+    gameBoard.classList.add('hidden');
+    pipeQueue.classList.add('hidden');
+    controls.classList.add('hidden');
+    timerDisplay.classList.add('hidden');
+    restart.classList.add('hidden');
   } else {
     alert("🚫 Water did not reach the house.");
   }
-  
 });
 
 // Rotate the first piece in the queue
@@ -248,13 +281,26 @@ document.getElementById('reset-btn').addEventListener('click', resetGame);
 
 // Close win overlay
 document.getElementById('close-win-btn').addEventListener('click', () => {
-  document.getElementById('win-overlay').classList.add('hidden');
-  resetGame(); // Optional: reset on win
+  const winOverlay = document.getElementById('win-overlay');
+  const gameBoard = document.getElementById('game-board');
+  const pipeQueue = document.getElementById('pipe-queue');
+  const controls = document.getElementById('controls');
+  const timerDisplay = document.getElementById('timer-display');
+  const restart = document.getElementById('restart');
+
+  winOverlay.classList.add('hidden');
+  gameBoard.classList.remove('hidden');
+  pipeQueue.classList.remove('hidden');
+  controls.classList.remove('hidden');
+  timerDisplay.classList.remove('hidden');
+  restart.classList.remove('hidden');
+  resetGame();
 });
 
 // Initialize game
 renderGrid();
 renderQueue();
+startTimer(); // Start the timer when the game initializes
 
 // Reset game
 function resetGame() {
@@ -283,4 +329,8 @@ function resetGame() {
 
   renderGrid();
   renderQueue();
+
+  // Reset and restart timer
+  stopTimer();
+  startTimer();
 }

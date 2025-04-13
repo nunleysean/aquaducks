@@ -19,6 +19,14 @@ h1 {
   text-align: center;
 }
 
+#timer-display {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #0077cc;
+  text-align: center;
+  margin: 10px auto;
+}
+
 #game-board {
   display: flex;
   gap: 20px;
@@ -197,43 +205,70 @@ h1 {
 
 // Win Overlay
 #win-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
+  top: 150px; /* Position beneath the title */
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 100, 150, 0.85);
+  max-width: 400px;
+  background-color: #2a7ae2; /* Solid background matching page theme */
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
   flex-direction: column;
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
 .overlay-content {
   text-align: center;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 2em;
-  border-radius: 20px;
-  box-shadow: 0 0 20px #fff;
+  background: #ffffff; /* Solid white background */
+  color: #2a7ae2; /* Match the page's primary color */
+  padding: 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  width: 100%;
+}
+
+.overlay-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1em;
+  color: #0077cc; /* Slightly darker blue for the title */
+}
+
+.overlay-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5em;
 }
 
 #win-overlay.hidden {
   display: none;
 }
 
+#game-board.hidden,
+#pipe-queue.hidden,
+#controls.hidden,
+#timer-display.hidden,
+#restart.hidden {
+  display: none;
+}
+
 #close-win-btn {
   margin-top: 1em;
-  background: #fff;
-  color: #0077cc;
+  background: #2a7ae2;
+  color: white;
   font-weight: bold;
-  padding: 0.6em 1.4em;
-  border-radius: 10px;
+  padding: 0.8em 1.6em;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
 }
 
 #close-win-btn:hover {
-  background-color: #e0f4ff;
+  background-color: #1e5bbf;
+  transform: scale(1.05);
 }
