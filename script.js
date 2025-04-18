@@ -299,6 +299,19 @@ document.getElementById('close-win-btn').addEventListener('click', () => {
   resetGame();
 });
 
+// Start game button
+document.getElementById('start-game-btn').addEventListener('click', () => {
+  const introScreen = document.getElementById('intro-screen');
+  introScreen.style.display = 'none'; // Hide the intro screen
+  initializeGame(); // Call the game initialization function
+});
+
+function initializeGame() {
+  renderGrid();
+  renderQueue();
+  startTimer(); // Start the timer when the game initializes
+}
+
 // Initialize game
 renderGrid();
 renderQueue();
