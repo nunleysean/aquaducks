@@ -292,7 +292,7 @@ h1 {
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   #timer-display {
@@ -305,26 +305,41 @@ h1 {
   }
 
   #grid {
-    grid-template-columns: repeat(5, 70px); /* Increased cell width */
-    grid-template-rows: repeat(5, 70px); /* Increased cell height */
-    gap: 6px; /* Slightly larger gap */
+    grid-template-columns: repeat(5, 50px); /* Reduced cell width */
+    grid-template-rows: repeat(5, 50px); /* Reduced cell height */
+    gap: 4px; /* Smaller gap */
   }
 
   .cell {
-    font-size: 22px; /* Adjust font size for larger cells */
+    font-size: 18px; /* Adjust font size for smaller cells */
   }
 
   #pipe-queue {
-    padding: 10px;
-    font-size: 0.9rem;
+    display: flex; /* Change to flex layout */
+    flex-direction: column; /* Keep the title above */
+    align-items: center; /* Center align content */
+    gap: 4px; /* Add spacing between elements */
+  }
+
+  #queue-title {
+    margin-bottom: 3px; /* Slightly reduce margin for smaller screens */
+  }
+
+  #queue-list {
+    display: flex; /* Arrange pipe pieces horizontally */
+    flex-direction: row-reverse; /* Horizontal layout */
+    gap: 8px; /* Add spacing between pipe pieces */
+    justify-content: center; /* Center the pipe pieces */
+    width: 100%; /* Ensure it spans the container */
   }
 
   .pipe-piece {
+    flex: 0 0 auto; /* Prevent shrinking */
     font-size: 20px;
   }
 
   #controls {
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px;
   }
 
@@ -334,7 +349,7 @@ h1 {
   }
 
   #restart {
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px;
   }
 

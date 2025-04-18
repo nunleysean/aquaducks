@@ -47,16 +47,6 @@ const gridState = Array.from({ length: 25 }, (_, i) => {
   }
 })();
 
-let pipeQueue = Array.from({ length: MAX_QUEUE_SIZE }, randomPipe);
-
-function generatePipeQueue(length) {
-  const types = ['straight', 'elbow'];
-  return Array.from({ length }, () => {
-    const type = types[Math.floor(Math.random() * types.length)];
-    return { type, rotation: 0 };
-  });
-}
-
 function renderGrid() {
   grid.innerHTML = '';
   gridState.forEach((cellState, i) => {
@@ -84,6 +74,17 @@ function renderGrid() {
     });
 
     grid.appendChild(cell);
+  });
+}
+
+// Initialize pipe queue
+let pipeQueue = Array.from({ length: MAX_QUEUE_SIZE }, randomPipe);
+
+function generatePipeQueue(length) {
+  const types = ['straight', 'elbow'];
+  return Array.from({ length }, () => {
+    const type = types[Math.floor(Math.random() * types.length)];
+    return { type, rotation: 0 };
   });
 }
 
@@ -239,6 +240,7 @@ document.getElementById('place-btn').addEventListener('click', () => {
   renderQueue();
 });
 
+// Random pipe generator
 function randomPipe() {
   const types = ['straight', 'elbow'];
   const type = types[Math.floor(Math.random() * types.length)];
