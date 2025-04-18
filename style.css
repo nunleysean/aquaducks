@@ -106,7 +106,7 @@ h1 {
   flex: 1; /* Allow the pipe queue to take up available space */
   border: 1px solid #ccc;
   padding: 15px;
-  background: #ffca0a;
+  background: #ffca0a; /* Updated to exact yellow */
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -286,8 +286,9 @@ h1 {
 /* Responsive styling for smaller screens */
 @media (max-width: 768px) {
   #game-container {
-    padding: 15px;
-    border-width: 2px;
+    padding: 5px; /* Greatly reduced padding */
+    max-width: 600px; /* Reduced maximum width */
+    border-width: 1px; /* Thinner border */
   }
 
   h1 {
@@ -304,13 +305,13 @@ h1 {
   }
 
   #grid {
-    grid-template-columns: repeat(5, 50px);
-    grid-template-rows: repeat(5, 50px);
-    gap: 4px;
+    grid-template-columns: repeat(5, 70px); /* Increased cell width */
+    grid-template-rows: repeat(5, 70px); /* Increased cell height */
+    gap: 6px; /* Slightly larger gap */
   }
 
   .cell {
-    font-size: 20px;
+    font-size: 22px; /* Adjust font size for larger cells */
   }
 
   #pipe-queue {
