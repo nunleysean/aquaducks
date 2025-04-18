@@ -259,7 +259,7 @@ document.getElementById('flow-btn').addEventListener('click', () => {
     const timerDisplay = document.getElementById('timer-display');
     const restart = document.getElementById('restart');
 
-    winOverlay.querySelector('p').textContent = `Water successfully reached the house in ${elapsedTime} seconds!`;
+    winOverlay.querySelector('p').textContent = `You provided fresh water to the village in ${elapsedTime} seconds!`;
     winOverlay.classList.remove('hidden');
     gameBoard.classList.add('hidden');
     pipeQueue.classList.add('hidden');

@@ -234,7 +234,7 @@ h1 {
 
 .overlay-content {
   text-align: center;
-  background: #ffffff; /* Solid white background */
+  background: #fff7e1; /* Solid off white background */
   color: #003366;
   padding: 1.5em;
   border-radius: 12px;
@@ -251,6 +251,15 @@ h1 {
 .overlay-content p {
   font-size: 1.2rem;
   margin-bottom: 1.5em;
+}
+
+#win-image
+{
+  width: 75%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 1em;
 }
 
 #win-overlay.hidden {
