@@ -1,3 +1,4 @@
+/* General Styles */
 * {
   box-sizing: border-box;
   font-family: 'Open Sans', Arial, sans-serif;
@@ -12,7 +13,7 @@ body {
 
 h1 {
   font-size: 2.5rem;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
   color: #003366;
   margin-bottom: 20px;
@@ -24,8 +25,9 @@ h1 {
   height: auto;
   vertical-align: middle;
 }
+
 .pipe-icon:first-of-type {
-  transform: scaleX(-1); /* Flip horizontally */
+  transform: scaleX(-1);
 }
 
 #timer-display {
@@ -55,7 +57,7 @@ h1 {
 }
 
 .cell {
-  background: white;
+  background: #fff7e1;
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
@@ -83,19 +85,18 @@ h1 {
   box-shadow: 0 0 8px #33ccff;
 }
 
-
 .well {
   background-color: #d0f0ff;
   color: #2a7ae2;
 }
 
 .house {
-  background-color: #ffe9cc;
+  background-color: #fff7e1;
   color: #BF6C46;
 }
 
 .cell.boulder {
-  background-color: whitesmoke;
+  background-color: #fff7e1;
   color: #222;
   font-size: 1.4em;
   display: flex;
@@ -103,21 +104,20 @@ h1 {
   justify-content: center;
 }
 
-
 #sidebar {
   display: flex;
-  flex-direction: row; /* Arrange sections side by side */
+  flex-direction: row;
   gap: 20px;
   max-width: 600px;
 }
 
 #pipe-queue {
-  flex: 1; /* Allow the pipe queue to take up available space */
+  flex: 1;
   border: 1px solid whitesmoke;
   padding: 15px;
-  background: #ffca0a; /* Updated to exact yellow */
+  background: #ffca0a;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .pipe-piece {
@@ -134,12 +134,12 @@ h1 {
 }
 
 #controls {
-  flex: 1; /* Allow the buttons section to take up available space */
+  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top : 20px;
-  gap: 10px; /* Add spacing between buttons */
+  margin-top: 20px;
+  gap: 10px;
 }
 
 #controls button {
@@ -148,7 +148,7 @@ h1 {
   font-size: 16px;
   font-weight: bold;
   color: white;
-  background: #005fa3; /* Lightened color */
+  background: #005fa3;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -156,7 +156,7 @@ h1 {
 }
 
 #controls button:hover {
-  background: #004a82; /* Adjusted hover color */
+  background: #004a82;
 }
 
 #queue-title {
@@ -167,10 +167,10 @@ h1 {
 }
 
 .title-icon {
-  width: 2rem;
+  width: 1.5rem;
   height: auto;
+  margin: 10px 10px;
   vertical-align: middle;
-  margin: 0 10px;
 }
 
 #restart {
@@ -181,6 +181,7 @@ h1 {
 
 #reset-btn {
   padding: 10px 20px;
+  margin-bottom: 1rem;
   font-size: 16px;
   font-weight: bold;
   color: white;
@@ -209,17 +210,15 @@ h1 {
 }
 
 .reset-icon:first-of-type {
-  transform: scaleX(-1); /* Flip horizontally */
+  transform: scaleX(-1);
 }
 
-// Win Overlay
 #win-overlay {
   position: absolute;
-  top: 150px; /* Position beneath the title */
+  top: 150px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 400px;
   background-color: #003366;
   color: white;
   display: flex;
@@ -229,23 +228,24 @@ h1 {
   flex-direction: column;
   padding: 2em;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .overlay-content {
+  max-width: 800px;
   text-align: center;
-  background: #fff7e1; /* Solid off white background */
+  background: #fff7e1;
   color: #003366;
   padding: 1.5em;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   width: 100%;
 }
 
 .overlay-content h1 {
   font-size: 2rem;
   margin-bottom: 1em;
-  color: #0077cc; /* Slightly darker blue for the title */
+  color: #0077cc;
 }
 
 .overlay-content p {
@@ -253,8 +253,7 @@ h1 {
   margin-bottom: 1.5em;
 }
 
-#win-image
-{
+#win-image {
   width: 75%;
   height: auto;
   margin: 0 auto;
@@ -294,14 +293,12 @@ h1 {
 #game-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
   border: 3px solid black;
   border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Intro Screen */
 #intro-screen {
   position: fixed;
   top: 0;
@@ -309,10 +306,11 @@ h1 {
   width: 100%;
   height: 100%;
   background-color: #77A8BB;
-  border-width: 1%; /* Added missing semicolon */
-  border-color: black; /* Corrected property name and added semicolon */
+  border-width: 1%;
+  border-color: black;
   color: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1000;
@@ -320,13 +318,17 @@ h1 {
 
 #intro-screen .intro-content {
   text-align: center;
+  gap: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #intro-screen h1 {
   font-size: 2rem;
   width: 90%;
   margin: 0 auto;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   color: #ffffff;
   background-color: black;
 }
@@ -335,16 +337,16 @@ h1 {
   font-size: 3rem;
   width: 90%;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 5vw;
   background-color: #003366;
-  color: #ffca0a; /* Match the yellow used in the pipe queue */
+  color: #ffca0a;
 }
 
 #intro-screen #ducky {
-  width: 25%; /* Set a smaller width */
-  height: auto; /* Maintain aspect ratio */
-  margin: 20px auto 0; /* Add spacing and center below the button */
-  display: block; /* Ensure it's treated as a block element */
+  width: 25%;
+  height: auto;
+  margin: 5vw auto 0;
+  display: block;
 }
 
 #start-game-btn {
@@ -367,9 +369,9 @@ h1 {
 /* Responsive styling for smaller screens */
 @media (max-width: 768px) {
   #game-container {
-    padding: 5px; /* Greatly reduced padding */
-    max-width: 600px; /* Reduced maximum width */
-    border-width: 1px; /* Thinner border */
+    padding: 5px;
+    max-width: 600px;
+    border-width: 1px;
   }
 
   h1 {
@@ -386,36 +388,36 @@ h1 {
   }
 
   #grid {
-    grid-template-columns: repeat(5, 50px); /* Reduced cell width */
-    grid-template-rows: repeat(5, 50px); /* Reduced cell height */
-    gap: 4px; /* Smaller gap */
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(5, 50px);
+    gap: 4px;
   }
 
   .cell {
-    font-size: 18px; /* Adjust font size for smaller cells */
+    font-size: 18px;
   }
 
   #pipe-queue {
-    display: flex; /* Change to flex layout */
-    flex-direction: column; /* Keep the title above */
-    align-items: center; /* Center align content */
-    gap: 4px; /* Add spacing between elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
   }
 
   #queue-title {
-    margin-bottom: 3px; /* Slightly reduce margin for smaller screens */
+    margin-bottom: 3px;
   }
 
   #queue-list {
-    display: flex; /* Arrange pipe pieces horizontally */
-    flex-direction: row-reverse; /* Horizontal layout */
-    gap: 8px; /* Add spacing between pipe pieces */
-    justify-content: center; /* Center the pipe pieces */
-    width: 100%; /* Ensure it spans the container */
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
   }
 
   .pipe-piece {
-    flex: 0 0 auto; /* Prevent shrinking */
+    flex: 0 0 auto;
     font-size: 20px;
   }
 
@@ -467,7 +469,6 @@ h1 {
     font-size: 1.5rem;
     width: 90%;
     margin: 0 auto;
-    margin-bottom: 10px;
     color: #ffffff;
     background-color: black;
   }
@@ -475,11 +476,12 @@ h1 {
   #intro-screen .title-icon {
     width: 1rem;
     height: auto;
-    }
+  }
 
   #intro-screen #ducky {
-      width: 75%; /* Set a smaller width */
-      height: auto; /* Maintain aspect ratio */
-      margin: 20px auto 0; /* Add spacing and center below the button */
-      display: block; /* Ensure it's treated as a block element */
-    }
+    width: 75vw;
+    height: auto;
+    margin: 20px auto 0;
+    display: block;
+  }
+}
