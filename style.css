@@ -367,7 +367,7 @@ h1 {
 }
 
 /* Responsive styling for smaller screens */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px), screen and (orientation: portrait) {
   #game-container {
     padding: 5px;
     max-width: 600px;
