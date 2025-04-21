@@ -467,7 +467,7 @@ h1 {
 
   #intro-screen h1 {
     font-size: 1.5rem;
-    width: 90%;
+    width: 95vw;
     margin: 0 auto;
     color: #ffffff;
     background-color: black;
@@ -475,7 +475,7 @@ h1 {
 
   #intro-screen h2 {
     font-size: 2rem;
-    width: 90%;
+    width: 95vw;
     margin: 0 auto;
     margin-bottom: 5vw;
     background-color: #003366;
