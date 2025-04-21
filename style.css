@@ -177,6 +177,7 @@ h1 {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  margin-left: 3vw
 }
 
 #reset-btn {
@@ -216,13 +217,13 @@ h1 {
 
 #info-btn {
   padding: 10px;
-  font-size: 16px;
+  font-size: 1.5rem;
   font-weight: bold;
   color: white;
   background: white;
   border: none;
   border-radius: 50%;
-  cursor: pointer;
+  cursor: help;
   transition: background 0.3s, transform 0.2s;
   display: flex;
   align-items: center;
@@ -233,7 +234,8 @@ h1 {
 }
 
 #info-btn:hover {
-  background: #004a82;
+  font-size: 2.5rem;
+  background:white;
   transform: scale(1.1);
 }
 
@@ -460,6 +462,7 @@ h1 {
   #restart {
     flex-direction: row;
     gap: 8px;
+    margin-left: 10vw;
   }
 
   #reset-btn {
