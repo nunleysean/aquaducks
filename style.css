@@ -326,7 +326,7 @@ h1 {
 
 #intro-screen h1 {
   font-size: 2rem;
-  width: 90%;
+  width: 75%;
   margin: 0 auto;
   margin-bottom: 0px;
   color: #ffffff;
@@ -335,7 +335,7 @@ h1 {
 
 #intro-screen h2 {
   font-size: 3rem;
-  width: 90%;
+  width: 75%;
   margin: 0 auto;
   margin-bottom: 5vw;
   background-color: #003366;
@@ -471,6 +471,15 @@ h1 {
     margin: 0 auto;
     color: #ffffff;
     background-color: black;
+  }
+
+  #intro-screen h2 {
+    font-size: 2rem;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 5vw;
+    background-color: #003366;
+    color: #ffca0a;
   }
 
   #intro-screen .title-icon {
