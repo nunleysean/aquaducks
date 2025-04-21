@@ -306,6 +306,10 @@ document.getElementById('start-game-btn').addEventListener('click', () => {
   initializeGame(); // Call the game initialization function
 });
 
+document.getElementById('info-btn').addEventListener('click', () => {
+  alert("How to Play:\n\n1. Place pipes on the grid to connect the well to the house.\n2. Rotate pipes in the queue if needed.\n3. Click 'Deliver Water' to check the connection.\n4. Reset the game anytime using the reset button.\n\nGood luck!");
+});
+
 function initializeGame() {
   renderGrid();
   renderQueue();

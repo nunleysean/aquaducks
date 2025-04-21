@@ -185,7 +185,7 @@ h1 {
   font-size: 16px;
   font-weight: bold;
   color: white;
-  background: #004a82;
+  background: #005fa3;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -198,10 +198,11 @@ h1 {
 }
 
 #reset-btn:hover {
-  background-color: #1e5bbf;
+  background-color: #004a82;
   transform: scale(1.05);
 }
 
+/*
 .reset-icon {
   width: 30px;
   height: 30px;
@@ -211,6 +212,29 @@ h1 {
 
 .reset-icon:first-of-type {
   transform: scaleX(-1);
+} */
+
+#info-btn {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+#info-btn:hover {
+  background: #004a82;
+  transform: scale(1.1);
 }
 
 #win-overlay {
@@ -366,6 +390,8 @@ h1 {
   transform: scale(1.05);
 }
 
+
+
 /* Responsive styling for smaller screens */
 @media screen and (max-width: 768px), screen and (orientation: portrait) {
   #game-container {
@@ -439,7 +465,6 @@ h1 {
   #reset-btn {
     font-size: 14px;
     padding: 8px 16px;
-    width: 100%;
   }
 
   #win-overlay {
