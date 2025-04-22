@@ -252,20 +252,24 @@ document.getElementById('flow-btn').addEventListener('click', () => {
   const connected = checkConnectionAndHighlight();
   if (connected) {
     stopTimer();
-    const winOverlay = document.getElementById('win-overlay');
-    const gameBoard = document.getElementById('game-board');
-    const pipeQueue = document.getElementById('pipe-queue');
-    const controls = document.getElementById('controls');
-    const timerDisplay = document.getElementById('timer-display');
-    const restart = document.getElementById('restart');
+    setTimeout(() => { // Delay the win screen by 3 seconds
+      const winOverlay = document.getElementById('win-overlay');
+      const gameBoard = document.getElementById('game-board');
+      const pipeQueue = document.getElementById('pipe-queue');
+      const controls = document.getElementById('controls');
+      const timerDisplay = document.getElementById('timer-display');
+      const restart = document.getElementById('restart');
 
-    winOverlay.querySelector('p').textContent = `You provided fresh water to the village in ${elapsedTime} seconds!`;
-    winOverlay.classList.remove('hidden');
-    gameBoard.classList.add('hidden');
-    pipeQueue.classList.add('hidden');
-    controls.classList.add('hidden');
-    timerDisplay.classList.add('hidden');
-    restart.classList.add('hidden');
+      const fact = showWaterFact(); // Get a random water fact
+      winOverlay.querySelector('p').textContent = `You successfully delivered fresh water to the village in ${elapsedTime} seconds!`;
+      winOverlay.querySelector('#waterfact').textContent = `Water Fact: ${fact}`;
+      winOverlay.classList.remove('hidden');
+      gameBoard.classList.add('hidden');
+      pipeQueue.classList.add('hidden');
+      controls.classList.add('hidden');
+      timerDisplay.classList.add('hidden');
+      restart.classList.add('hidden');
+    }, 3000); // 3-second delay
   } else {
     alert("🚫 Water did not reach the house.");
   }
@@ -316,10 +320,18 @@ function initializeGame() {
   startTimer(); // Start the timer when the game initializes
 }
 
-// Initialize game
-renderGrid();
-renderQueue();
-startTimer(); // Start the timer when the game initializes
+// charity:water facts
+function showWaterFact() {
+  const facts = [
+    "785 million people lack basic access to clean water.",
+    "Women and children spend 200 million hours every day collecting water.",
+    "Access to clean water can transform communities and save lives.",
+    "Every $1 invested in clean water provides $4-$12 in economic returns.",
+    "charity:water has funded over 100,000 water projects around the world."
+  ];
+  
+  return facts[Math.floor(Math.random() * facts.length)];
+}
 
 // Reset game
 function resetGame() {
@@ -330,6 +342,7 @@ function resetGame() {
     gridState[i] = null;
   }
 
+  // Reset well and house
   gridState[0] = { type: 'well' };
   gridState[24] = { type: 'house' };
 

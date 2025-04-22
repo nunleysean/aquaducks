@@ -50,7 +50,7 @@ h1 {
   grid-template-columns: repeat(5, 60px);
   grid-template-rows: repeat(5, 60px);
   gap: 5px;
-  background: #BF6C46;
+  background: #E1C699;
   padding: 10px;
   border: 2px solid black;
   border-radius: 8px;
@@ -88,6 +88,8 @@ h1 {
 .well {
   background-color: #d0f0ff;
   color: #2a7ae2;
+  /* Add a well animation */
+  animation: pulse 2s infinite;
 }
 
 .house {
@@ -277,6 +279,11 @@ h1 {
 .overlay-content p {
   font-size: 1.2rem;
   margin-bottom: 1.5em;
+}
+
+#waterfact {
+  font-size: 1.2rem;
+  margin-bottom: 1em;
 }
 
 #win-image {
