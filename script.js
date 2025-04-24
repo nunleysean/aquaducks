@@ -26,7 +26,74 @@ const pipeConnections = {
   }
 };
 
+// Define audio files
+const sounds = {
+  place: new Audio('audio/place.wav'),
+  rotate: new Audio('audio/rotate.wav'),
+  flow: new Audio('audio/flow.wav'),
+  success: new Audio('audio/success.wav'),
+  error: new Audio('audio/error.wav'),
+  background: new Audio('audio/background.wav')
+};
+
+// Set background music to loop and lower volume
+sounds.background.loop = true;
+sounds.background.volume = 0.1; // Lowered volume to 10%
+
+// Sound control
+let soundEnabled = true;
+
+// Play sound helper function with error handling
+function playSound(soundName) {
+  try {
+    // Stop and reset the sound first (allows rapid triggering)
+    sounds[soundName].pause();
+    sounds[soundName].currentTime = 0;
+    
+    // Play the sound
+    sounds[soundName].play().catch(error => {
+      console.log("Sound play error:", error);
+      // Many browsers require user interaction before playing audio
+    });
+  } catch (e) {
+    console.log("Sound error:", e);
+  }
+}
+
+// Toggle sound button functionality
+document.getElementById('toggle-sound').addEventListener('click', () => {
+  const toggleSoundBtn = document.getElementById('toggle-sound');
+  soundEnabled = !soundEnabled;
+
+  if (soundEnabled) {
+    sounds.background.play().catch(e => console.log("Background sound error:", e));
+    toggleSoundBtn.textContent = '🔊'; // Speaker icon
+  } else {
+    sounds.background.pause();
+    toggleSoundBtn.textContent = '🔇'; // Mute speaker icon
+  }
+});
+
+// Add to start-game-btn click handler
+document.getElementById('start-game-btn').addEventListener('click', () => {
+  const introScreen = document.getElementById('intro-screen');
+  introScreen.style.display = 'none';
+  initializeGame();
+  
+  // Ensure background sound is paused and reset before playing
+  sounds.background.pause();
+  sounds.background.currentTime = 0;
+  sounds.background.play().catch(e => console.log("Background sound error:", e));
+});
+
+
 let selectedCell = null;
+let level = 1; // Initialize level counter
+
+function updateLevelDisplay() {
+  const levelDisplay = document.getElementById('level-display');
+  levelDisplay.textContent = `Level: ${level}`;
+}
 
 // Init grid: well = 0, house = 24, 2 random boulders
 const gridState = Array.from({ length: 25 }, (_, i) => {
@@ -35,10 +102,10 @@ const gridState = Array.from({ length: 25 }, (_, i) => {
   return null;
 });
 
-// Place 5 random boulders
+// Place 3 random boulders
 (function placeBoulders() {
   let placed = 0;
-  while (placed < 5) {
+  while (placed < 3) {
     const index = Math.floor(Math.random() * 25);
     if (!gridState[index]) {
       gridState[index] = { type: 'boulder' };
@@ -223,11 +290,20 @@ function stopTimer() {
 
 // Place pipe from queue
 document.getElementById('place-btn').addEventListener('click', () => {
-  if (!selectedCell) return alert("Select a grid cell!");
+  if (!selectedCell) {
+    alert("Select a grid cell!");
+    playSound('error');
+    return;
+  }
+  
   const index = +selectedCell.dataset.index;
   const cellState = gridState[index];
 
-  if (cellState) return alert("This cell is already occupied or blocked!");
+  if (cellState) {
+    alert("This cell is already occupied or blocked!");
+    playSound('error');
+    return;
+  }
 
   const nextPipe = pipeQueue.shift();
   gridState[index] = { ...nextPipe };
@@ -236,6 +312,7 @@ document.getElementById('place-btn').addEventListener('click', () => {
     pipeQueue.push(randomPipe());
   }
 
+  playSound('place');
   renderGrid();
   renderQueue();
 });
@@ -251,6 +328,7 @@ function randomPipe() {
 document.getElementById('flow-btn').addEventListener('click', () => {
   const connected = checkConnectionAndHighlight();
   if (connected) {
+    playSound('flow');
     stopTimer();
     setTimeout(() => { // Delay the win screen by 3 seconds
       const winOverlay = document.getElementById('win-overlay');
@@ -269,8 +347,10 @@ document.getElementById('flow-btn').addEventListener('click', () => {
       controls.classList.add('hidden');
       timerDisplay.classList.add('hidden');
       restart.classList.add('hidden');
+      playSound('success');
     }, 3000); // 3-second delay
   } else {
+    playSound('error');
     alert("🚫 Water did not reach the house.");
   }
 });
@@ -279,13 +359,14 @@ document.getElementById('flow-btn').addEventListener('click', () => {
 document.getElementById('rotate-queue-btn').addEventListener('click', () => {
   if (pipeQueue.length === 0) return;
   pipeQueue[0].rotation = (pipeQueue[0].rotation + 1) % 4;
+  playSound('rotate');
   renderQueue();
 });
 
 // Reset game button
 document.getElementById('reset-btn').addEventListener('click', resetGame);
 
-// Close win overlay
+// Close win overlay and increase level
 document.getElementById('close-win-btn').addEventListener('click', () => {
   const winOverlay = document.getElementById('win-overlay');
   const gameBoard = document.getElementById('game-board');
@@ -300,6 +381,8 @@ document.getElementById('close-win-btn').addEventListener('click', () => {
   controls.classList.remove('hidden');
   timerDisplay.classList.remove('hidden');
   restart.classList.remove('hidden');
+
+  level++; // Increment level
   resetGame();
 });
 
@@ -314,10 +397,12 @@ document.getElementById('info-btn').addEventListener('click', () => {
   alert("How to Play:\n\n1. Place pipes on the grid to connect the well to the house.\n2. Rotate pipes in the queue if needed.\n3. Click 'Deliver Water' to check the connection.\n4. Reset the game anytime using the reset button.\n\nGood luck!");
 });
 
+// Initialize game with level display
 function initializeGame() {
   renderGrid();
   renderQueue();
   startTimer(); // Start the timer when the game initializes
+  updateLevelDisplay(); // Initialize level display
 }
 
 // charity:water facts
@@ -346,9 +431,10 @@ function resetGame() {
   gridState[0] = { type: 'well' };
   gridState[24] = { type: 'house' };
 
-  // Place new boulders
+  // Place new boulders (increase by level)
   let placed = 0;
-  while (placed < 5) {
+  const bouldersToPlace = 3 + (level - 1); // Increase boulders by level
+  while (placed < bouldersToPlace) {
     const index = Math.floor(Math.random() * 25);
     if (!gridState[index]) {
       gridState[index] = { type: 'boulder' };
@@ -365,4 +451,7 @@ function resetGame() {
   // Reset and restart timer
   stopTimer();
   startTimer();
+
+  // Update level display
+  updateLevelDisplay();
 }

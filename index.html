@@ -12,7 +12,7 @@
     <div class="intro-content">
       <h1>
         <img src="img/WaterCan.svg" alt="Water Can" class="title-icon">
-        charity:water presents
+        charity: water presents
       </h1>
       <h2>AQUADUCKS</h2>
       <button id="start-game-btn">Start Game</button>
@@ -23,10 +23,10 @@
   <div id="game-container">
     <h1>
       <img src="img/pipe-art.jpg" alt="Pipe" class="pipe-icon">
-      AquaDucks
+      AQUADUCKS
       <img src="img/pipe-art.jpg" alt="Pipe" class="pipe-icon">
     </h1>
-
+    <div id="level-display"></div>
     <div id="timer-display">⏱️ Time: 0s</div>
     
     <div id="game-board">
@@ -45,9 +45,10 @@
       <button id="flow-btn">Deliver Water</button>
     </div>
     <div id="restart">
-      <button id="reset-btn">Reset Game</button>
+      <button id="reset-btn">Reset Board</button>
 
       <button id="info-btn">ℹ️</button> <!-- Added info button -->
+      <button id="toggle-sound">🔊</button>
     </div>
     <div id="win-overlay" class="hidden">
       <div class="overlay-content">
@@ -55,6 +56,11 @@
         <p>Water successfully reached the village!</p>
         <img src="img/freshwater.jpg" alt="Fresh Water" id="win-image">
         <div id="waterfact"></div>
+        <div id="charitywater-link">
+          Learn more about how you can help bring clean water to people in need by visiting
+          <a href="https://www.charitywater.org/" target="_blank">charity: water</a>
+          today!
+        </div>
         <button id="close-win-btn">Play Again</button>
       </div>
     </div>

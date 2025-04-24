@@ -1,7 +1,7 @@
 /* General Styles */
 * {
   box-sizing: border-box;
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: 'Merriweather', Arial, sans-serif;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
 
 h1 {
   font-size: 2.5rem;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Gotham', serif;
   font-weight: bold;
   color: #003366;
   margin-bottom: 20px;
@@ -31,6 +31,14 @@ h1 {
 }
 
 #timer-display {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #0077cc;
+  text-align: center;
+  margin: 10px auto;
+}
+
+#level-display {
   font-size: 1.2em;
   font-weight: bold;
   color: #0077cc;
@@ -241,6 +249,30 @@ h1 {
   transform: scale(1.1);
 }
 
+#toggle-sound {
+  padding: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  cursor: help;
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+#toggle-sound:hover {
+  font-size: 2.5rem;
+  background:white;
+  transform: scale(1.1);
+}
+
 #win-overlay {
   position: absolute;
   top: 150px;
@@ -279,6 +311,7 @@ h1 {
 .overlay-content p {
   font-size: 1.2rem;
   margin-bottom: 1.5em;
+  font-family: 'Gotham', sans-serif;
 }
 
 #waterfact {
@@ -364,6 +397,7 @@ h1 {
   margin-bottom: 0px;
   color: #ffffff;
   background-color: black;
+  font-family: 'Gotham', serif;
 }
 
 #intro-screen h2 {
@@ -373,6 +407,7 @@ h1 {
   margin-bottom: 5vw;
   background-color: #003366;
   color: #ffca0a;
+  font-family: 'Gotham', serif;
 }
 
 #intro-screen #ducky {
@@ -399,7 +434,24 @@ h1 {
   transform: scale(1.05);
 }
 
+#charitywater-link {
+  font-size: 1.2rem;
+  color: #003366;
+  text-align: center;
+  margin-top: 1em;
+}
 
+#charitywater-link a {
+  color: #0077cc;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#charitywater-link a:hover {
+  color: #005fa3;
+  text-decoration: underline;
+}
 
 /* Responsive styling for smaller screens */
 @media screen and (max-width: 768px), screen and (orientation: portrait) {
@@ -506,6 +558,7 @@ h1 {
     margin: 0 auto;
     color: #ffffff;
     background-color: black;
+    font-family: 'Merriweather', serif;
   }
 
   #intro-screen h2 {
@@ -515,6 +568,7 @@ h1 {
     margin-bottom: 5vw;
     background-color: #003366;
     color: #ffca0a;
+    font-family: 'Merriweather', serif;
   }
 
   #intro-screen .title-icon {
